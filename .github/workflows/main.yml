@@ -7,6 +7,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    env:
+      APP_NAME: sample
 
     steps:
     - uses: actions/checkout@v1
@@ -15,7 +17,7 @@ jobs:
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/kaluzaaa/registry-test/my-image-name:${GITHUB_SHA::7}
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
 
     - name: Push the Docker image
-      run: docker push docker.pkg.github.com/kaluzaaa/registry-test/my-image-name:${GITHUB_SHA::7}
+      run: docker push docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
