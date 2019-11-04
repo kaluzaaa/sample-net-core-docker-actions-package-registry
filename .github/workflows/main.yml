@@ -14,14 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Login to GitHub Package Registry
-      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+   # - name: Login to GitHub Package Registry
+   #   run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:${{ github.sha }}
+   # - name: Build the Docker image
+    #  run: docker build . --file Dockerfile --tag docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:${{ github.sha }}
 
-    - name: Push the Docker image
-      run: docker push docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:${{ github.sha }}
+    #- name: Push the Docker image
+     # run: docker push docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:${{ github.sha }}
 
     - uses: azure/k8s-set-context@v1
       with:

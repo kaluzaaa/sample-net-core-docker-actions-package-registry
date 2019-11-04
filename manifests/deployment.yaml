@@ -16,5 +16,5 @@ spec:
         app: sample
     spec:
       containers:
-      - image: docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:dummy
+      - image: docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:4d2a2b45b9d3ba1ea2ae263d78aeb9ac9d579742
         name: sample
