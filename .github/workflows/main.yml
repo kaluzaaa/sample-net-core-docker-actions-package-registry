@@ -8,7 +8,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      IMAGE: docker.pkg.github.com/${{ github.repository }}/sample:${GITHUB_SHA::7}
+      IMAGE: docker.pkg.github.com/${{ github.repository }}/sample
 
     steps:
     - uses: actions/checkout@v1
@@ -17,10 +17,10 @@ jobs:
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $IMAGE
+      run: docker build . --file Dockerfile --tag $IMAGE:${GITHUB_SHA::7}
 
     - name: Push the Docker image
-      run: docker push $IMAGE
+      run: docker push $IMAGE:${GITHUB_SHA::7}
 
     - uses: azure/k8s-set-context@v1
       with:
