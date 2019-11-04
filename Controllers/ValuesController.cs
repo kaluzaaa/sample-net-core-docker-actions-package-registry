@@ -14,7 +14,7 @@ namespace sample_net_core_docker_actions_package_registry.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Kuba", "Piotrek" };
+            return new string[] { "Kuba jest cicho ;-)", "Piotrek" };
         }
 
         // GET api/values/5
