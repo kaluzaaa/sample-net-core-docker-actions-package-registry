@@ -42,3 +42,5 @@ jobs:
           manifests/ingress.yaml
         images: 'docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:tojesttest'
         imagepullsecrets: 'demo-k8s-secret'
+    - run: printenv
+    - run: cat /home/runner/work/_temp/Deployment_sample_*
