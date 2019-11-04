@@ -40,6 +40,6 @@ jobs:
           manifests/service.yaml
           manifests/ingress.yaml
         images: |
-          docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
+          docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:${GITHUB_SHA::7}
         imagepullsecrets: |
           demo-k8s-secret
