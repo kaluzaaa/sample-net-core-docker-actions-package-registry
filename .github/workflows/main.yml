@@ -34,7 +34,7 @@ jobs:
         secret-name: demo-k8s-secret
 
     - name: Preper image in manifest
-      run: sed -i "s/{{IMAGE}}/$IMAGE/g" manifests/deployment.yaml
+      run: sed -i 's/{{IMAGE}}/$IMAGE:${GITHUB_SHA::7}/g' manifests/deployment.yaml
 
     - uses: Azure/k8s-deploy@v1
       with:
