@@ -8,8 +8,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      APP_NAME: sample
-      IMAGE: docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
+      IMAGE: docker.pkg.github.com/${{ github.repository }}/sample:${GITHUB_SHA::7}
 
     steps:
     - uses: actions/checkout@v1
