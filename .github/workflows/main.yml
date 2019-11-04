@@ -20,7 +20,7 @@ jobs:
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${{ github.sha }}
 
     - name: Push the Docker image
-      run: docker push docker.pkg.github.com/${{ github.repository }}/$APP_NAME::${{ github.sha }}
+      run: docker push docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${{ github.sha }}
 
     - uses: azure/k8s-set-context@v1
       with:
