@@ -39,5 +39,5 @@ jobs:
           manifests/deployment.yaml
           manifests/service.yaml
           manifests/ingress.yaml
-        images: 'docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:${{ github.sha }}'
+        images: 'docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:tojesttest'
         imagepullsecrets: 'demo-k8s-secret'
