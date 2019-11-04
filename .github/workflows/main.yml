@@ -38,6 +38,7 @@ jobs:
         manifests: |
           manifests/deployment.yaml
           manifests/service.yaml
+          manifests/ingress.yaml
         images: |
           docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
         imagepullsecrets: |
