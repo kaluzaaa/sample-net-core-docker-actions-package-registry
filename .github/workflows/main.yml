@@ -18,10 +18,10 @@ jobs:
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${IMAGE}
+      run: docker build . --file Dockerfile --tag $IMAGE
 
     - name: Push the Docker image
-      run: docker push ${IMAGE}
+      run: docker push $IMAGE
 
     - uses: azure/k8s-set-context@v1
       with:
@@ -35,7 +35,7 @@ jobs:
         secret-name: demo-k8s-secret
 
     - name: Preper image in manifest
-      run: sed -i "s/{{MYVARNAME}}/$MYVARVALUE/g" manifests/deployment.yaml
+      run: sed -i "s/{{IMAGE}}/$IMAGE/g" manifests/deployment.yaml
 
     - uses: Azure/k8s-deploy@v1
       with:
