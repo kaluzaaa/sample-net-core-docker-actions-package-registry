@@ -21,3 +21,12 @@ jobs:
 
     - name: Push the Docker image
       run: docker push docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
+
+    - uses: azure/k8s-set-context@v1
+      with:
+        kubeconfig: ${{ secrets.KUBE_CONFIG }}
+    - uses: Azure/k8s-deploy@v1
+      with:
+        manifests: '/manifests/*.*'
+        images: |
+          docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
