@@ -16,5 +16,5 @@ spec:
         app: sample
     spec:
       containers:
-      - image: docker.pkg.github.com/kaluzaaa/sample-net-core-docker-actions-package-registry/sample:922c049
+      - image: docker.pkg.github.com/${{ github.repository }}/$APP_NAME:${GITHUB_SHA::7}
         name: sample
