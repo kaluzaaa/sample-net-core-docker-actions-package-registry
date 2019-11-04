@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       APP_NAME: sample
+      ACTIONS_STEP_DEBUG: true
 
     steps:
     - uses: actions/checkout@v1
